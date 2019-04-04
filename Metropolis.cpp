@@ -13,7 +13,10 @@ float norm(float x);
 
 int main(){
     srand48(time(0));
+    int N = 10000;
     
+    MCMC(N);
+    return 0;
     
 }
 
@@ -24,27 +27,23 @@ void MCMC(int N)
     float r;
     int i;
     
-    for(i=0; i<N,i++)
-    {
+    for(i=0; i<N;i++){
         propuesta = antiguo + (drand48()-0.5);
-        r = 1
-        if(norm(propuesta)/norm(antiguo) < r)
-        {
+        r = 1;
+        if(norm(propuesta)/norm(antiguo) < r){
             r =norm(propuesta)/norm(antiguo);
         }
-        if(r < rand48())
-        {
-            propuesta = antiguo;
+        if(r > drand48()){
+            antiguo = propuesta;
         }
-        cout << propuesta << endl;
+        cout << antiguo << endl;
         
-        return 0;
     }
     
 }
 
 float norm(float x)
 {
-    argu = pow(x,2);
+    float argu = pow(x,2);
     return exp(-argu);
 }
